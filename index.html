@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CoDraw</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<!-- ICON TOGGLE -->
+<button id="controls-fab" title="Tools">
+  <i class="fas fa-tools"></i>
+</button>
+
+<!-- TOOL PANEL -->
+<div id="controls" class="closed">
+  <div class="controls-body">
+
+    <div class="control-group">
+      <button id="draw-mode-btn" class="mode-btn active">
+        <i class="fas fa-pen"></i>
+      </button>
+      <div class="mode-label" id="mode-label">Mode Gambar</div>
+    </div>
+
+    <div class="control-group">
+      <div class="stat">
+        <i class="fas fa-users"></i>
+        <span id="online-count">0</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <button id="pen-btn" class="tool-btn active">
+        <i class="fas fa-pen"></i>
+      </button>
+      <button id="eraser-btn" class="tool-btn">
+        <i class="fas fa-eraser"></i>
+      </button>
+    </div>
+
+    <div class="control-group">
+      <input type="color" id="color-picker" value="#2196F3"/>
+      <div id="current-color-dot"></div>
+    </div>
+
+    <div class="control-group">
+      <div class="size-control">
+        <button class="size-btn" data-size="3">•</button>
+        <button class="size-btn active" data-size="6">••</button>
+        <button class="size-btn" data-size="10">•••</button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="zoom-info">
+        <i class="fas fa-search"></i>
+        <span id="zoom-percent">100%</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <button id="reset-view-btn" class="action-btn">
+        <i class="fas fa-crosshairs"></i>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- CHAT (TETAP) -->
+<div id="chat-panel" class="collapsed">
+  <div class="chat-header">
+    <h3><i class="fas fa-comments"></i> Chat (<span id="chat-count">0</span>)</h3>
+    <button id="chat-toggle" class="chat-toggle-btn">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </div>
+
+  <div class="chat-body">
+    <div id="messages"></div>
+    <div class="chat-input">
+      <input id="message-input" placeholder="Ketik pesan..." />
+      <button id="send-btn" class="send-btn">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="mode-indicator">
+  <div class="indicator active" id="draw-indicator">
+    <i class="fas fa-pen"></i> Mode Gambar
+  </div>
+  <div class="indicator" id="pan-indicator">
+    <i class="fas fa-hand-paper"></i> Mode Geser
+  </div>
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
